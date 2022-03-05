@@ -80,7 +80,7 @@ if __name__ == "__main__":
     # We have samples from two distributions. We use NPEET package to compute kldiv directly from samples.
     # NPEET needs nxd tensors
     kldiv = NPEET.npeet.entropy_estimators.kldiv(samples, second_samples)
-    print(f"KL divergence between HMC samples and True samples is {kldiv}")
+    print(f"KL divergence is {kldiv}")
 
     # TV distance between discretized density
     # The discrete density bin from the image give us a natural scale for discretization.
@@ -88,4 +88,4 @@ if __name__ == "__main__":
     tv_dist = get_discretized_tv_for_image_density(
         numpy.asarray(density), numpy.asarray(samples), bin_size=[7, 7]
     )
-    print(f"TV distance between HMC samples and True samples is {tv_dist}")
+    print(f"TV distance is {tv_dist}")
